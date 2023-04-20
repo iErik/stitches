@@ -1,0 +1,90 @@
+{
+  "name": "@stitches/solid",
+  "version": "1.3.1-1",
+  "description": "The modern CSS-in-JS library for Solid.js",
+  "type": "module",
+  "main": "src/index.js",
+  "module": "dist/index.mjs",
+  "types": "types/index.d.ts",
+  "typesVersions": {
+    ">= 4.1": {
+      "*": [
+        "types/*"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./src/index.js",
+      "types": "./types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/*.cjs",
+    "dist/*.js",
+    "dist/*.map",
+    "dist/*.mjs",
+    "types/*.d.ts"
+  ],
+  "sideEffects": false,
+  "license": "MIT",
+  "repository": "stitchesjs/stitches",
+  "homepage": "https://stitches.dev/",
+  "bugs": "https://github.com/stitchesjs/stitches/issues",
+  "contributors": [
+    "Pedro Duarte",
+    "Abdulhadi Alhallak <abdul@workos.com>",
+    "Jonathan Neal",
+    "Erik Isidore <ericssonico@proton.me>"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "component",
+    "components",
+    "create",
+    "css",
+    "css-in-js",
+    "global",
+    "globals",
+    "javascript",
+    "js",
+    "nesting",
+    "object",
+    "object-oriented",
+    "oo",
+    "oocss",
+    "oriented",
+    "scope",
+    "scoped",
+    "style",
+    "styled",
+    "styles",
+    "stylesheet",
+    "stylesheets",
+    "theme",
+    "themes",
+    "theming",
+    "token",
+    "tokens",
+    "type",
+    "typed",
+    "types",
+    "transform",
+    "ts",
+    "variable",
+    "variables",
+    "jsx",
+    "solid",
+    "solid-js",
+    "tsx"
+  ],
+  "devDependencies": {
+    "solid-js": "^1.7.3"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.7.3"
+  }
+}

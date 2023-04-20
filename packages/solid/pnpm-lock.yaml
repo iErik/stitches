@@ -1,0 +1,48 @@
+lockfileVersion: '6.0'
+
+dependencies:
+  solid-js:
+    specifier: ^1.7.3
+    version: 1.7.3
+
+devDependencies:
+  dom-expressions:
+    specifier: ^0.36.10
+    version: 0.36.10(csstype@3.1.2)(seroval@0.7.0)
+
+packages:
+
+  /babel-plugin-transform-rename-import@2.3.0:
+    resolution: {integrity: sha512-dPgJoT57XC0PqSnLgl2FwNvxFrWlspatX2dkk7yjKQj5HHGw071vAcOf+hqW8ClqcBDMvEbm6mevn5yHAD8mlQ==}
+    dev: true
+
+  /csstype@3.1.2:
+    resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
+
+  /dom-expressions@0.36.10(csstype@3.1.2)(seroval@0.7.0):
+    resolution: {integrity: sha512-xxs73kO/V8EiC9ykiS7dWcMuT3lcMhca3O2WFG6F+GtuxxFoaQLOjT8DwVTP+yNRCnjr6r/D1D0ifhCn2Yfxyg==}
+    peerDependencies:
+      csstype: ^3.0
+      seroval: ^0.7.0
+    dependencies:
+      babel-plugin-transform-rename-import: 2.3.0
+      csstype: 3.1.2
+      seroval: 0.7.0
+    dev: true
+
+  /seroval@0.5.1:
+    resolution: {integrity: sha512-ZfhQVB59hmIauJG5Ydynupy8KHyr5imGNtdDhbZG68Ufh1Ynkv9KOYOAABf71oVbQxJ8VkWnMHAjEHE7fWkH5g==}
+    engines: {node: '>=10'}
+    dev: false
+
+  /seroval@0.7.0:
+    resolution: {integrity: sha512-GeyRvryi+5aHBsOXK4KexhhjTB8rkBvLfHxK5RWy8S3Dwq/hk7VNFcg2yT0k4f2lGJPYlWHRkV3/UpGjhJ5Scg==}
+    engines: {node: '>=10'}
+    dev: true
+
+  /solid-js@1.7.3:
+    resolution: {integrity: sha512-4hwaF/zV/xbNeBBIYDyu3dcReOZBECbO//mrra6GqOrKy4Soyo+fnKjpZSa0nODm6j1aL0iQRh/7ofYowH+jzw==}
+    dependencies:
+      csstype: 3.1.2
+      seroval: 0.5.1
+    dev: false
