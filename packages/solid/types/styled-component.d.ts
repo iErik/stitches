@@ -2,7 +2,7 @@ import type * as Util from './util.js'
 import type {
 	JSX,
 	Component,
-	ParentProps
+	ComponentProps,
 } from 'solid-js'
 
 export type IntrinsicElementsKeys = keyof JSX.IntrinsicElements;
@@ -16,7 +16,7 @@ export interface StyledComponent<
 > extends Component<
 	Util.Assign<
 		Type extends IntrinsicElementsKeys | Component<any>
-			? ParentProps<Type>
+			? ComponentProps<Type>
 			: never,
 		TransformProps<Props, Media> & { css?: CSS }
 	>
@@ -24,7 +24,7 @@ export interface StyledComponent<
 	(
 		props: Util.Assign<
 			Type extends IntrinsicElementsKeys | Component<any>
-				? ParentProps<Type>
+				? ComponentProps<Type>
 			: {},
 			TransformProps<Props, Media> & {
 				as?: never,
@@ -39,7 +39,7 @@ export interface StyledComponent<
 		InnerProps = Type extends StyledComponent<any, infer IP, any, any> ? IP : {},
 	>(
 		props: Util.Assign<
-			ParentProps<As extends IntrinsicElementsKeys | Component<any> ? As : never>,
+			ComponentProps<As extends IntrinsicElementsKeys | Component<any> ? As : never>,
 			TransformProps<Util.Assign<InnerProps, Props>, Media> & {
 				as?: As,
 				css?: {
