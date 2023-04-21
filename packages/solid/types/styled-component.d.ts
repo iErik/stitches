@@ -1,6 +1,9 @@
-import type * as React from 'react'
 import type * as Util from './util.js'
-
+import type {
+	JSX,
+	Component,
+	ParentProps
+} from 'solid-js'
 
 export type IntrinsicElementsKeys = keyof JSX.IntrinsicElements;
 
@@ -10,33 +13,33 @@ export interface StyledComponent<
 	Props = {},
 	Media = {},
 	CSS = {}
-> extends React.ForwardRefExoticComponent<
+> extends Component<
 	Util.Assign<
-		Type extends IntrinsicElementsKeys | React.ComponentType<any>
-			? React.ComponentPropsWithRef<Type>
-		: never,
+		Type extends IntrinsicElementsKeys | Component<any>
+			? ParentProps<Type>
+			: never,
 		TransformProps<Props, Media> & { css?: CSS }
 	>
 > {
 	(
 		props: Util.Assign<
-			Type extends IntrinsicElementsKeys | React.ComponentType<any>
-				? React.ComponentPropsWithRef<Type>
+			Type extends IntrinsicElementsKeys | Component<any>
+				? ParentProps<Type>
 			: {},
 			TransformProps<Props, Media> & {
 				as?: never,
 				css?: CSS
 			}
 		>
-	): React.ReactElement | null
+	): JSX.Element | null
 
 	<
 		C extends CSS,
-		As extends string | React.ComponentType<any> = Type extends string | React.ComponentType<any> ? Type : any,
+		As extends string | Component<any> = Type extends string | Component<any> ? Type : any,
 		InnerProps = Type extends StyledComponent<any, infer IP, any, any> ? IP : {},
 	>(
 		props: Util.Assign<
-			React.ComponentPropsWithRef<As extends IntrinsicElementsKeys | React.ComponentType<any> ? As : never>,
+			ParentProps<As extends IntrinsicElementsKeys | Component<any> ? As : never>,
 			TransformProps<Util.Assign<InnerProps, Props>, Media> & {
 				as?: As,
 				css?: {
@@ -44,7 +47,7 @@ export interface StyledComponent<
 				}
 			}
 		>
-	): React.ReactElement | null
+	): JSX.Element | null
 
 	className: string
 	selector: string
@@ -117,17 +120,8 @@ export declare const $$StyledComponentMedia: unique symbol
 export type $$StyledComponentMedia = typeof $$StyledComponentMedia
 
 /** Returns a narrowed JSX element from the given tag name. */
-type IntrinsicElement<TagName> = TagName extends IntrinsicElementsKeys ? TagName : never
-
-/** Returns a ForwardRef component. */
-type ForwardRefExoticComponent<Type, Props> = React.ForwardRefExoticComponent<
-	Util.Assign<
-		Type extends React.ElementType
-			? React.ComponentPropsWithRef<Type>
-		: never,
-		Props & { as?: Type }
-	>
->
+type IntrinsicElement<TagName> =
+	TagName extends IntrinsicElementsKeys ? TagName : never
 
 /** Returns the first Styled Component type from the given array of compositions. */
 export type StyledComponentType<T extends any[]> = (
