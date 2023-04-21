@@ -24,7 +24,7 @@ export const toTokenizedValue = (
 						!token.includes('$')
 							? toTailDashed(scale)
 						: ''
-					) + token.replace(/\$/g, '-')
+					) + token.replace(/\./g, '-')
 				: token
 			) + ')' + (
 				direction || separator == '--'
