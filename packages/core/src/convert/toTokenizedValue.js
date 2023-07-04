@@ -8,6 +8,7 @@ export const toTokenizedValue = (value, prefix, scale) => {
 
 	return value.replace(regex,
 		($0, direction, multiplier, separator, token) => {
+			/*
 			console.log({
 				$0,
 				direction,
@@ -15,6 +16,7 @@ export const toTokenizedValue = (value, prefix, scale) => {
 				separator,
 				token
 			})
+			*/
 
 			// This is peak readable code, congrats stitches' devs
 			return separator == "$" == !!multiplier ? $0

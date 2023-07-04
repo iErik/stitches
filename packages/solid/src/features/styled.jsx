@@ -1,3 +1,13 @@
+import {
+	mergeProps,
+	createComponent,
+	splitProps,
+	createComputed,
+	createEffect,
+	createMemo as memo,
+	createSignal
+} from 'solid-js'
+
 import { Dynamic } from 'solid-js/web'
 import { Fragment } from 'solid-js/h/jsx-runtime'
 
@@ -18,7 +28,6 @@ export const createStyledFunction = ({ config, sheet }) =>
 			css = cssFunction,
 			{ displayName, shouldForwardStitchesProp } = {}
 		) => {
-
 			const cssComponent = css(...args)
 			const DefaultType = cssComponent[internal].type
 			const shouldForwardAs = shouldForwardStitchesProp?.('as')
@@ -27,25 +36,19 @@ export const createStyledFunction = ({ config, sheet }) =>
 				const tag = props?.as && !shouldForwardAs
 					? props?.as : DefaultType
 
-				const {
-					props: forwardProps,
-					deferredInjector
-				} = cssComponent(props)
+				const cssProps = memo(() => cssComponent(props))
+				const component = <Dynamic
+					component={tag}
+					{...cssProps().props}
+				/>
 
-				const component = Dynamic({
-					component: tag,
-					...forwardProps
-				})
+				//if (!shouldForwardAs) delete cssProps.props.as
 
-				if (!shouldForwardAs)
-					delete forwardProps.as
-
-				if (deferredInjector) return Fragment({
-					children: [
-						component,
-						Dynamic({ component: deferredInjector })
-					]
-				})
+				if (cssProps().deferredInjector) return (
+					<Fragment>
+						{ component }
+						<Dynamic component={cssProps().deferredInjector} />
+					</Fragment>)
 
 				return component
 			}

@@ -13,6 +13,12 @@ export class ThemeToken {
 	}
 
 	get variable() {
+		console.log({
+			prefix: this.prefix,
+			scale: this.scale,
+			token: this.token
+		})
+
 		return '--' + toTailDashed(this.prefix) + toTailDashed(this.scale) + this.token
 	}
 

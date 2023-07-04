@@ -196,7 +196,7 @@ const createRenderer = (config, internals, sheet, { shouldForwardStitchesProp })
 					classSet.add(variantClassName)
 
 					const groupCache = (isResponsive ? sheet.rules.resonevar : sheet.rules.onevar ).cache
-					/* 
+					/*
 					 * make sure that normal variants are injected before responsive ones
 					 * @see {@link https://github.com/stitchesjs/stitches/issues/737|github}
 					 */
@@ -233,7 +233,7 @@ const createRenderer = (config, internals, sheet, { shouldForwardStitchesProp })
 		// apply css property styles
 		const css = forwardProps.css
 		if (typeof css === 'object' && css) {
-			if (!shouldForwardStitchesProp?.('css')) delete forwardProps.css 
+			if (!shouldForwardStitchesProp?.('css')) delete forwardProps.css
 			/** @type {string} Inline Class Unique Identifier. @see `{COMPOSER_UUID}-i{VARIANT_UUID}-css` */
 			const iClass = `${baseClassName}-i${toHash(css)}-css`
 
@@ -323,7 +323,7 @@ const getTargetVariantsToAdd = (
 	media,
 	isCompoundVariant,
 ) => {
-	
+
 	const targetVariantsToAdd = []
 
 	targetVariants: for (let [vMatch, vStyle, vEmpty] of targetVariants) {
@@ -354,7 +354,7 @@ const getTargetVariantsToAdd = (
 				for (const query in pPair) {
 					if (vPair === String(pPair[query])) {
 						if (query !== '@initial') {
-							// check if the cleanQuery is in the media config and then we push the resulting media query to the matchedQueries array, 
+							// check if the cleanQuery is in the media config and then we push the resulting media query to the matchedQueries array,
 							// if not, we remove the @media from the beginning and push it to the matched queries which then will be resolved a few lines down
 							// when we finish working on this variant and want wrap the vStyles with the matchedQueries
 							const cleanQuery = query.slice(1);
